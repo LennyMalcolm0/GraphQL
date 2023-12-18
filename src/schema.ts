@@ -2,7 +2,7 @@ export const typeDefs = `#graphql
     # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
     type Book {
-        id: String
+        id: String 
         title: String
         author: String
     }
@@ -13,5 +13,18 @@ export const typeDefs = `#graphql
     type Query {
         books: [Book]
         book(id: String!): Book
+    }
+    type Mutation {
+        addBook(book: AddBook!): Book
+        updateBook(id: String!, book: EditBook!): Book
+    }
+
+    input AddBook {
+        title: String!
+        author: String!
+    }
+    input EditBook {
+        title: String
+        author: String
     }
 `;
